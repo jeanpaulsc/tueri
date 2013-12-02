@@ -24,7 +24,7 @@ response.google_analytics_id = None
 #########################################################################
 
 response.menu = [
-    (T('Home'), True, URL('default', 'index'), [])
+    (T('Home'), False, URL('default', 'index'), [])
 ]
 
 DEVELOPMENT_MENU = True
