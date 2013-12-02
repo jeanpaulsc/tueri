@@ -1,16 +1,17 @@
 {{extend 'layout.html'}} 
-<h1>Problem: {{=problem.title}}</h1> 
-<center>
-<img width="200px"
-    src="{{=URL('download', args=problem.problem_image)}}" /> 
-</center>
+<h3>Problem: {{=problem.title}}</h3> 
+<left>
+<img src="{{=URL('download', args=problem.problem_image)}}" /> 
+</left>
+<br/><h4>Effort:</h4>
+<p><b>{{=problem.comments}}</b></p>
 {{if len(comments):}}
-  <h2>Comments</h2><br /><p>
+  <h3>Critique</h3><br />
   {{for post in comments:}}
 <p>{{=progress.created_by}} says <i>{{=progress.comment}}</i></p> 
 {{pass}}</p>
 {{else:}}
-  <h2>No comments posted yet</h2>
+  <br/><h4>No feedback yet</h4>
 {{pass}}
-<h2>Post a comment</h2>
+<h4>Post Feedback</h4>
 {{=form}}

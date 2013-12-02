@@ -1,0 +1,11 @@
+{{extend 'layout.html'}}
+
+<h1>Subjects</h1>
+<ul>
+{{for subject in subjects:}}
+{{=LI(A(subject.title, _href=URL("show", args=subject.id)))}} 
+{{pass}}
+</ul>
+<br><p>[ {{=A('add problem', _href=URL('add_problem'))}} ]</p>
+
+<br><p>[ {{=A('add subject', _href=URL('add_subject'))}} ]</p>

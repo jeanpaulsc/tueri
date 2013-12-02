@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-# {{=response.toolbar()}}
+# -*- coding: utf-8 -*-comments = db(db.post.image_id==image.id).select()
 
 def index():
     '''This is intended to display problems in groups as chapters'''
-    problems = db().select(db.problem.id,db.problem.title,orderby=db.problem.chapter)
-    response.flash = T("Prepare to Curse!")
+    problems = db(db.problem.status=='active').select(db.problem.id,db.problem.title)
     return dict(problems=problems)
 
 @auth.requires_login()
@@ -19,19 +17,30 @@ def add_subject():
 def add_problem():
     """Adds a problem"""
     form = SQLFORM(db.problem)
-#    if form.process().accepted:
-#        redirect(URL('default', 'invite'))
+    if form.process().accepted:
+        redirect(URL('default', 'index'))
+    return dict(form=form)
+
+def edit():
+    problem = db.problem(request.args(0))
+    form = SQLFORM(db.problem, problem)
+    if form.process().accepted:
+        redirect(URL('default', 'index'))
     return dict(form=form)
 
 @auth.requires_login()
 def show():
-    problem = db.problem(request.args(0,cast=int)) #or redirect(URL('index'))
+    problem = db.problem(request.args(0,cast=int)) or redirect(URL('index'))
     db.progress.problem_id.default = problem.id
     form = SQLFORM(db.progress)
     if form.process().accepted:
-        response.flash = 'your comment is posted'
+        response.flash = 'your feedback is posted'
     comments = db(db.progress.problem_id==problem.id).select()
     return dict(problem=problem, comments=comments, form=form)
+
+def subjects():
+	subjects = db(db.subject.uid==get_uid()).select()
+	return dict(subjects=subjects)
 
 def download():
     return response.download(request,db)
@@ -54,7 +63,7 @@ def found_group():
 '''
 @auth.requires_login()
 def comment():
-    '''either insight or criticism, it's done here'''
+    '''either effort or critique, it's done here'''
     form = SQLFORM(db.progress).process(next=URL('index'))
     return dict(form=form)
 
