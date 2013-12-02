@@ -20,7 +20,6 @@ db.define_table('problem',
 
 #'''progress refers both to proposals and critiques'''
 db.define_table('progress',
-<<<<<<< HEAD
     Field('problem_id', 'reference problem'),
     Field('perspective'),
     Field('body', 'text'),
@@ -38,30 +37,6 @@ db.define_table('snode',
     Field('root', 'integer'),
     Field('title'),
     Field('body', 'text'))
-
-db.define_table('image',
-    Field('title'),
-    Field('file', 'upload'),
-    format = '%(title)s')
-=======
-                Field('problem_id', 'integer', 'reference problem'),
-                Field('perspective'),
-                Field('body', 'text'),
-                Field('comments', 'text'),
-		Field('created_by'),
-		Field('created_on'))
-
-'''this is my timer, reminder and monitor'''
-db.define_table('crontime',
-		Field('crontab'),
-                format = '%(crontime)s')
-
-db.define_table('snode',
-		Field('parent_id', 'reference self'),
-		Field('root', 'integer'),
-		Field('title'),
-		Field('body', 'text'))
->>>>>>> 27a90a64303964c62128e728bdcf386beb4ca6fe
 
 db.problem.title.requires = IS_NOT_IN_DB(db, db.problem.title)
 db.progress.problem_id.requires = IS_IN_DB(db, db.problem.id, '%(title)s')

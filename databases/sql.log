@@ -513,3 +513,93 @@ success!
 success!
 success!
 success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2013-12-01T18:16:34.710357
+ALTER TABLE image ADD body TEXT;
+timestamp: 2013-12-01T18:16:34.713546
+ALTER TABLE image ADD comments TEXT;
+timestamp: 2013-12-01T18:16:34.716152
+ALTER TABLE image ADD problem_id INTEGER;
+timestamp: 2013-12-01T18:16:34.718578
+ALTER TABLE image ADD created_on CHAR(512);
+timestamp: 2013-12-01T18:16:34.721765
+ALTER TABLE image ADD created_by CHAR(512);
+timestamp: 2013-12-01T18:16:34.725081
+ALTER TABLE image ADD perspective CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
