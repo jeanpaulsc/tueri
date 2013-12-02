@@ -1,0 +1,9 @@
+{{extend 'layout.html'}}
+
+<h1>Problems to Solve</h1>
+<ul>
+{{for problem in problems:}}
+{{=LI(A(problem.title, _href=URL("show", args=problem.id)))}} 
+{{pass}}
+</ul>
+<br><p>[ {{=A('add problem', _href=URL('add'))}} ]</p>

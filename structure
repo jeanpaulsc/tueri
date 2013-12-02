@@ -1,0 +1,14 @@
+Neophyte (is user)
+  create User
+  create Curricula
+    add Problem(s)
+      add Effort(s)
+  invite Consultant(s)
+
+Consultant (is user)
+  view Curricula, Problem(s), Effort(s)
+    add Critique(s)
+
+Monitor (is log)
+  meters Activity
+  notifies Users

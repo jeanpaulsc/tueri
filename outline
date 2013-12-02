@@ -1,0 +1,50 @@
+STUDIUM
+Tutorial collaboration application
+
+USER 
+  Neophyte (primary, student)
+  Prospect (invited, prospective consultant)
+  Consultant (tutor, advisor)
+
+CURRICULA Subject
+  Chapters or subjects of assignment
+  has Problems
+
+PROBLEM belongs to Curricula
+
+EFFORT belongs to Problem has Critique
+
+MESSAGE belongs to User
+  Invitation
+  Reply
+
+OFFER
+
+CRITIQUE belongs to Problem (Solved is Hint or Correction or Comment)
+
+METER tracks time for user compensation, progress etc.
+
+FULL PROCESS
+
+Neophyte 
+  create User
+  create Curricula
+    add Problem(s)
+      add Effort(s)
+  create Offer  
+    invite Prospect(s)
+      affirm Consultant(s)
+
+Prospect
+  view Curricula, Problem(s)
+    reply Offer
+  
+Consultant
+  login Meter
+  view Curricula Problem(s)
+      Effort(s)
+        add Critique
+
+Meter
+  reports
+
