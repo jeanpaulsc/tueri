@@ -8,9 +8,19 @@ def index():
     return dict(problems=problems)
 
 @auth.requires_login()
-def add():
-    '''problems are entered here'''
-    form = SQLFORM(db.problem).process(next=URL('show'))
+def add_subject():
+    """Adds a subject."""
+    form = SQLFORM(db.subject)
+    if form.process().accepted:
+        redirect(URL('default', 'add_problem'))
+    return dict(form=form)
+
+@auth.requires_login()
+def add_problem():
+    """Adds a problem"""
+    form = SQLFORM(db.problem)
+#    if form.process().accepted:
+#        redirect(URL('default', 'invite'))
     return dict(form=form)
 
 @auth.requires_login()
@@ -29,7 +39,8 @@ def download():
 def link():
     return response.download(request,db,attachment=False)
 '''
-def index():
+@auth.requires_login()
+def found_group():
     image_form = FORM(
         INPUT(_name='image_title',_type='text'),
         INPUT(_name='image_file',_type='file')

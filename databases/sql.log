@@ -603,3 +603,77 @@ success!
 success!
 success!
 success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2013-12-01T21:57:51.233104
+CREATE TABLE subject(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    auth_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    neophyte CHAR(512),
+    title CHAR(512)
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2013-12-01T22:03:12.159545
+ALTER TABLE progress ADD comment TEXT;
+success!
+success!
+success!
+timestamp: 2013-12-01T22:22:10.668321
+ALTER TABLE problem ADD subject_id INTEGER REFERENCES subject (id) ON DELETE CASCADE;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

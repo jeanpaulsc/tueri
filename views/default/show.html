@@ -7,7 +7,7 @@
 {{if len(comments):}}
   <h2>Comments</h2><br /><p>
   {{for post in comments:}}
-<p>{{=progress.created_by}} says <i>{{=progress.body}}</i></p> 
+<p>{{=progress.created_by}} says <i>{{=progress.comment}}</i></p> 
 {{pass}}</p>
 {{else:}}
   <h2>No comments posted yet</h2>
