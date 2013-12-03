@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+
+<h3>Problems to Solve</h3>
+<ul>
+{{for problem in problems:}}
+{{=LI(A(problem.title, _href=URL("show", args=problem.id)))}} 
+{{pass}}
+</ul>
+<br><p>{{if (get_username()=='jeanpaulsc'):}}
+
+   <button onclick="document.location='{{A(=URL("tueri","default","add_problem", args=request.application))}}'"></button>
+
+{{pass}}</p>

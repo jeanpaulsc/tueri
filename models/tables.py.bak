@@ -1,15 +1,11 @@
 from datetime import datetime
 db = DAL("sqlite://storage.sqlite")
 
+nadmin='jeanpaulsc'
+
 def get_username():
     if auth.user:
         return auth.user.username
-    else:
-        return 'None'
-
-def nadmin():
-    if (get_username()=='jeanpaulsc'):
-        return 1
     else:
         return 'None'
 
@@ -29,8 +25,7 @@ def get_uid():
 db.define_table('subject',
     Field('uid', default=get_uid),
     Field('neophyte', default=get_username()),
-    Field('title'),
-    format = '%(subject)s')
+    Field('title'))
 
 '''
 this table functions to retain both the problem text, likely

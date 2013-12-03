@@ -3,7 +3,8 @@
 def index():
     '''This is intended to display problems in groups as chapters'''
     problems = db(db.problem.status=='active').select(db.problem.id,db.problem.title)
-    return dict(problems=problems)
+    username = get_username()
+    return dict(problems=problems, username=username)
 
 @auth.requires_login()
 def add_subject():
@@ -38,8 +39,8 @@ def show():
     comments = db(db.progress.problem_id==problem.id).select()
     return dict(problem=problem, comments=comments, form=form)
 
-def subjects():
-	subjects = db(db.subject.uid==get_uid()).select()
+def subject_list():
+	subjects = db().select(db.subject.ALL)
 	return dict(subjects=subjects)
 
 def download():

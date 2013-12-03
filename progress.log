@@ -1,2 +1,8 @@
 [2013-11-29 02:22:55] START
 [2013-11-29 02:23:37] CREATE snode.py: 0
+[2013-12-02 15:19:25] EDIT tueri/models/tables.py: 1
+[2013-12-02 15:24:16] EDIT tueri/models/tables.py: 4
+[2013-12-02 15:27:26] EDIT tueri/views/default/show.html: 0
+[2013-12-02 15:29:16] EDIT tueri/views/default/index.html: 0
+[2013-12-02 15:32:22] EDIT tueri/views/default/index.html: 2
+[2013-12-02 16:53:25] EDIT tueri/views/default/index.html: 0
