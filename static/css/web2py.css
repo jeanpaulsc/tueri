@@ -45,6 +45,30 @@ audio {width:200px}
   padding:20px 0 50px 0;
 }
 
+.iContent {
+-moz-border-radius: 8px;
+-webkit-border-radius:8px;
+border-radius: 8px;
+background: #FFFFFF;
+border: 1px solid #DFDFDF;
+margin-top: 20px;
+padding: 20px 0px 40px 50px;
+}
+
+.iContent_others {
+width: 970px;
+height:auto;
+position: relative;
+text-align: left;
+-moz-border-radius: 8px;
+border-radius: 8px;
+-webkit-border-radius:8px;
+background: #FFFFFF;
+border: 1px solid #DFDFDF;
+margin: 60px auto;
+padding-left: 20px;
+}
+
 .footer,.push {
   height:6em;
   padding:1em 0;
