@@ -40,7 +40,7 @@ db.define_table('problem',
     Field('neophyte', default=get_username()),
     Field('title'),
     Field('problem_image', 'upload'),
-    Field('body', 'text'),
+    Field('solution_image', 'upload'),
     Field('status', default='active'),
     Field('comments', 'text'),
     format = '%(problem)s')

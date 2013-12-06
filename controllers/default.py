@@ -6,6 +6,17 @@ def index():
     username = get_username()
     return dict(problems=problems, username=username)
 
+def edit_comment():
+    comment = db.progress(request.args(0,cast=int))
+    form = SQLFORM(db.progress, comment)
+    if form.process().accepted:
+        response.flash = 'your feedback is posted'
+    return dict(form=form)
+
+def comment_list():
+    comments = db().select(db.progress.ALL)
+    return dict(comments=comments)
+
 @auth.requires_login()
 def add_subject():
     """Adds a subject."""
@@ -33,11 +44,12 @@ def edit():
 def show():
     problem = db.problem(request.args(0,cast=int)) or redirect(URL('index'))
     db.progress.problem_id.default = problem.id
+    username=get_username()
     form = SQLFORM(db.progress)
     if form.process().accepted:
         response.flash = 'your feedback is posted'
     comments = db(db.progress.problem_id==problem.id).select()
-    return dict(problem=problem, comments=comments, form=form)
+    return dict(problem=problem, username=username, comments=comments, form=form)
 
 def subject_list():
 	subjects = db().select(db.subject.ALL)

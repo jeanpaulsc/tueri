@@ -4,11 +4,14 @@
 <img src="{{=URL('download', args=problem.problem_image)}}" /> 
 </left>
 <br/><h4>Effort:</h4>
-<p><b>{{=problem.comments}}</b></p>
+<left>
+<img src="{{=URL('download', args=problem.solution_image)}}" /> 
+</left>
+<p><div><b>{{=XML(problem.comments)}}</b></div></p>
 {{if len(comments):}}
   <h3>Critique</h3><br />
-  {{for post in comments:}}
-<p>{{=progress.created_by}} says <i>{{=progress.comment}}</i></p> 
+  {{for comment in comments:}}
+<p>{{=comment.created_by}} says <i>{{=comment.comment}}</i></p> 
 {{pass}}</p>
 {{else:}}
   <br/><h4>No feedback yet</h4>
