@@ -38,7 +38,7 @@ def edit():
     form = SQLFORM(db.problem, problem)
     if form.process().accepted:
         redirect(URL('default', 'index'))
-    return dict(form=form)
+    return dict(form=form, problem=problem)
 
 @auth.requires_login()
 def show():

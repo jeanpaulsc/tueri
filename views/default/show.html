@@ -7,6 +7,7 @@
 <left>
 <img src="{{=URL('download', args=problem.solution_image)}}" /> 
 </left>
+<p><div><b>{{=URL('gettext', args=problem.comments)}}</b></div></p>
 <p><div><b>{{=XML(problem.comments)}}</b></div></p>
 {{if len(comments):}}
   <h3>Critique</h3><br />
