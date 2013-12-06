@@ -45,11 +45,12 @@ def show():
     problem = db.problem(request.args(0,cast=int)) or redirect(URL('index'))
     db.progress.problem_id.default = problem.id
     username=get_username()
+    sol=URL('gettex', args=problem.comments)
     form = SQLFORM(db.progress)
     if form.process().accepted:
         response.flash = 'your feedback is posted'
     comments = db(db.progress.problem_id==problem.id).select()
-    return dict(problem=problem, username=username, comments=comments, form=form)
+    return dict(problem=problem, sol=sol, username=username, comments=comments, form=form)
 
 def subject_list():
 	subjects = db().select(db.subject.ALL)

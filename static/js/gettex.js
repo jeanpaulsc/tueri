@@ -1,10 +1,5 @@
 !function gettex (str) {
-	//var anchor = document.getElementByID("myAnchor");
-    //var result = anchor.href; // Returns:'https://developer.mozilla.org/en-US/URLUtils.href'
-    return encodeURI(str)
+	var totex = encodeURI(str);
+	var purl = new URL("http://www.sciweavers.org/tex2img.php?eq=", totex);
+	return purl;
 }
-
-
-// Let's an <a id="myAnchor" href="https://developer.mozilla.org/en-US/URLUtils.href"> element be in the document
-
-

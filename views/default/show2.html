@@ -1,0 +1,22 @@
+{{extend 'layout.html'}} 
+<h3>Problem: {{=problem.title}}</h3> 
+<left>
+<img src="{{=URL('download', args=problem.problem_image)}}" /> 
+</left>
+<br/><h4>Effort:</h4>
+<left>
+<img src="{{=URL('download', args=problem.solution_image)}}" /> 
+</left>
+<img src="{{=URL('gettext', args=XML(problem.comments))}}+"&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0' border='0'"/>
+
+<p><div><b>{{=XML(problem.comments)}}</b></div></p>
+{{if len(comments):}}
+  <h3>Critique</h3><br />
+  {{for comment in comments:}}
+<p>{{=comment.created_by}} says <i>{{=comment.comment}}</i></p> 
+{{pass}}</p>
+{{else:}}
+  <br/><h4>No feedback yet</h4>
+{{pass}}
+<h4>Post Feedback</h4>
+{{=form}}

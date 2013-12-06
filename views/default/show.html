@@ -5,10 +5,9 @@
 </left>
 <br/><h4>Effort:</h4>
 <left>
-<img src="{{=URL('download', args=problem.solution_image)}}" /> 
+	L: "http://www.sciweavers.org/tex2img.php?eq={{=problem.comments}}&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" border="0"
 </left>
-<p><div><b>{{=URL('gettext', args=problem.comments)}}</b></div></p>
-<p><div><b>{{=XML(problem.comments)}}</b></div></p>
+<p><div><b>{{=problem.comments}}</b></div></p>
 {{if len(comments):}}
   <h3>Critique</h3><br />
   {{for comment in comments:}}
@@ -19,3 +18,5 @@
 {{pass}}
 <h4>Post Feedback</h4>
 {{=form}}
+
+<img src="http://www.sciweavers.org/tex2img.php?eq=%20x%20%3D%5Cbegin%7Bcases%7Da%20%26%20x%20%3D%200%5C%5Cb%20%26%20x%20%3E%200%5Cend%7Bcases%7D%20&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt=" x =\begin{cases}a & x = 0\\b & x > 0\end{cases} " width="118" height="47" />
