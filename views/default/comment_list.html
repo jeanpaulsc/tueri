@@ -1,8 +1,8 @@
 {{extend 'layout.html'}}
 
-<h3>Comments</h3>
+<h3>Critiques</h3>
 <ul>
-{{for comment in comments:}}
-{{=LI(A(comment.comment, _href=URL("edit_comment", args=comment.id)))}}
+{{for critique in critiques:}}
+{{=LI(A(critique.critique, _href=URL("edit_critique", args=critique.id)))}}
 {{pass}}
 </ul>

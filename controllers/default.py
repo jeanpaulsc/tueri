@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-comments = db(db.post.image_id==image.id).select()
+# -*- coding: utf-8 -*-critiques = db(db.post.image_id==image.id).select()
 
 def index():
     '''This is intended to display problems in groups as chapters'''
@@ -6,23 +6,23 @@ def index():
     username = get_username()
     return dict(problems=problems, username=username)
 
-def edit_comment():
-    comment = db.progress(request.args(0,cast=int))
-    form = SQLFORM(db.progress, comment)
+def edit_critique():
+    critique = db.progress(request.args(0,cast=int))
+    form = SQLFORM(db.progress, critique)
     if form.process().accepted:
         response.flash = 'your feedback is posted'
     return dict(form=form)
 
-def comment_list():
-    comments = db().select(db.progress.ALL)
-    return dict(comments=comments)
+def critique_list():
+    critiques = db().select(db.progress.ALL)
+    return dict(critiques=critiques)
 
 @auth.requires_login()
 def add_subject():
     """Adds a subject."""
     form = SQLFORM(db.subject)
     if form.process().accepted:
-        redirect(URL('default', 'add_problem'))
+        redirect(URL('default', 'subject_list'))
     return dict(form=form)
 
 @auth.requires_login()
@@ -45,16 +45,27 @@ def show():
     problem = db.problem(request.args(0,cast=int)) or redirect(URL('index'))
     db.progress.problem_id.default = problem.id
     username=get_username()
-    sol=URL('gettex', args=problem.comments)
     form = SQLFORM(db.progress)
     if form.process().accepted:
         response.flash = 'your feedback is posted'
-    comments = db(db.progress.problem_id==problem.id).select()
-    return dict(problem=problem, sol=sol, username=username, comments=comments, form=form)
+    critiques = db(db.progress.problem_id==problem.id).select()
+    #efforts = db(db.effort.problem_id==problem.id).select()
+    return dict(problem=problem, username=username, critiques=critiques, form=form)
 
 def subject_list():
-	subjects = db().select(db.subject.ALL)
-	return dict(subjects=subjects)
+	subjects = db().select(db.subject.id,db.subject.title)
+	username=get_username()
+	return dict(subjects=subjects, username=username)
+	
+def show_subject():
+    sub_q = db.subject(request.args(0,cast=int)) or redirect(URL('subject_list'))
+    db.note.subject_id.default = subject.id
+    username=get_username()
+    form = SQLFORM(db.note)
+    if form.process().accepted:
+        response.flash = 'your note is posted'
+    note_q = db(db.note.note_id==note.id).select()
+    return dict(sub_q=sub_q, username=username, note_q=note_q, form=form)
 
 def download():
     return response.download(request,db)
@@ -76,7 +87,7 @@ def found_group():
         return dict(images=images)
 '''
 @auth.requires_login()
-def comment():
+def critique():
     '''either effort or critique, it's done here'''
     form = SQLFORM(db.progress).process(next=URL('index'))
     return dict(form=form)

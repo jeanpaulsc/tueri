@@ -1,0 +1,17 @@
+{{extend 'layout.html'}} 
+<h3>Subject: {{=sub_q.subject.title}}</h3> 
+
+<br/>
+  {{for note in notes:}}
+{{if len(notes):}}
+  <h3>Notes</h3><br />
+  {{for note in note_q:}}
+<p>{{=note.title}} says <i>{{=note.body}}</i></p> 
+{{pass}}</p>
+{{else:}}
+  <br/><h4>No notes yet</h4>
+{{pass}}
+  <h4>Post Note</h4>
+  {{=form}}
+
+
