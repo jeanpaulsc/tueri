@@ -68,7 +68,7 @@ sS'type'
 p30
 S'string'
 p31
-ssS'id'
+ssS'problem_id'
 p32
 (dp33
 g24
@@ -76,14 +76,14 @@ I512
 sg25
 I00
 sg26
-I1
+I2
 sg27
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+S'INTEGER REFERENCES problem (id) ON DELETE CASCADE'
 p34
 sg29
 I00
 sg30
-S'id'
+S'reference problem'
 p35
 ssS'created_on'
 p36
@@ -142,7 +142,7 @@ I00
 sg30
 S'text'
 p53
-ssS'problem_id'
+ssS'id'
 p54
 (dp55
 g24
@@ -150,14 +150,14 @@ I512
 sg25
 I00
 sg26
-I2
+I1
 sg27
-S'INTEGER REFERENCES problem (id) ON DELETE CASCADE'
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
 p56
 sg29
 I00
 sg30
-S'reference problem'
+S'id'
 p57
 ssS'perspective'
 p58
