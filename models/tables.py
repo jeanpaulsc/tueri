@@ -24,7 +24,7 @@ def get_user_id():
     else:
         return 'None'
 
-#@auth.requires_login()
+@auth.requires_login()
 db.define_table('subject',
     Field('user_id', default=get_user_id),
     Field('neophyte', default=get_username()),
